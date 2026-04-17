@@ -13,12 +13,7 @@ public class Issue {
     @ManyToOne
     private Book book;
 
-    @ManyToOne
-    private Member member;
-
     private LocalDate issueDate;
-
-    // ✅ NEW FIELDS
     private LocalDate dueDate;
     private LocalDate returnDate;
     private double fine;
@@ -39,14 +34,6 @@ public class Issue {
 
     public void setBook(Book book) {
         this.book = book;
-    }
-
-    public Member getMember() {
-        return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
     }
 
     public LocalDate getIssueDate() {

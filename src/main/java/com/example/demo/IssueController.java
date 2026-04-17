@@ -26,8 +26,8 @@ public class IssueController {
         Book book = bookRepository.findById(bookId).orElse(null);
         Member member = memberRepository.findById(memberId).orElse(null);
 
-        if (book == null || member == null) {
-            return "Book or Member not found";
+        if (book == null) {
+            throw new RuntimeException("Book not found");
         }
 
         if (book.getQuantity() <= 0) {

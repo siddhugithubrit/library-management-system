@@ -24,7 +24,6 @@ public class IssueController {
     public String issueBook(@PathVariable int bookId, @PathVariable int memberId) {
 
         Book book = bookRepository.findById(bookId).orElse(null);
-        Member member = memberRepository.findById(memberId).orElse(null);
 
         if (book == null) {
             throw new RuntimeException("Book not found");
@@ -38,19 +37,17 @@ public class IssueController {
         book.setQuantity(book.getQuantity() - 1);
         bookRepository.save(book);
 
-        // create issue
+        // create issue (WITHOUT member)
         Issue issue = new Issue();
         issue.setBook(book);
-        issue.setMember(member);
-        issue.setIssueDate(LocalDate.now()); // ✅ only once
-        issue.setDueDate(LocalDate.now().plusDays(7)); // due after 7 days
+        issue.setIssueDate(LocalDate.now());
+        issue.setDueDate(LocalDate.now().plusDays(7));
         issue.setFine(0);
 
         issueRepository.save(issue);
 
         return "Book issued successfully";
     }
-
     // ✅ Return Book
     @DeleteMapping("/return/{issueId}")
     public String returnBook(@PathVariable int issueId) {

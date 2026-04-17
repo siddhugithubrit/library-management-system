@@ -91,8 +91,5 @@ public class IssueController {
     }
 
     // ✅ Get issues by member
-    @GetMapping("/member/{memberId}")
-    public List<Issue> getIssuesByMember(@PathVariable int memberId) {
-        return issueRepository.findByMember_MemberId(memberId);
-    }
+    
 }

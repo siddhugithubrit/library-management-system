@@ -52,36 +52,22 @@ public class IssueController {
     @DeleteMapping("/return/{issueId}")
     public String returnBook(@PathVariable int issueId) {
 
+        System.out.println("Return API called"); // 👈 ADD THIS
+
         Issue issue = issueRepository.findById(issueId).orElse(null);
 
         if (issue == null) {
             return "Issue not found";
         }
 
-        // increase quantity
         Book book = issue.getBook();
         book.setQuantity(book.getQuantity() + 1);
         bookRepository.save(book);
 
-        // set return date
-        LocalDate today = LocalDate.now();
-        issue.setReturnDate(today);
-
-        // calculate fine
-        if (today.isAfter(issue.getDueDate())) {
-            long daysLate = java.time.temporal.ChronoUnit.DAYS
-                    .between(issue.getDueDate(), today);
-
-            double fine = daysLate * 10;
-            issue.setFine(fine);
-        }
-
-        // ✅ remove issue after return
         issueRepository.delete(issue);
 
         return "Book returned successfully";
-    }
-    // ✅ Get all issues
+    }    // ✅ Get all issues
     @GetMapping
     public List<Issue> getAllIssues() {
         return issueRepository.findAll();

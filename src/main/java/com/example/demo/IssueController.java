@@ -58,32 +58,29 @@ public class IssueController {
             return "Issue not found";
         }
 
-        // increase book quantity
+        // increase quantity
         Book book = issue.getBook();
         book.setQuantity(book.getQuantity() + 1);
         bookRepository.save(book);
 
-        // calculate fine
-     // calculate fine
+        // set return date
         LocalDate today = LocalDate.now();
+        issue.setReturnDate(today);
 
-        issue.setReturnDate(today); // ✅ set return date
-
+        // calculate fine
         if (today.isAfter(issue.getDueDate())) {
             long daysLate = java.time.temporal.ChronoUnit.DAYS
                     .between(issue.getDueDate(), today);
 
             double fine = daysLate * 10;
             issue.setFine(fine);
-            System.out.println("Late return. Fine: " + fine);
         }
 
-        // delete issue
-        issueRepository.save(issue);
+        // ✅ remove issue after return
+        issueRepository.delete(issue);
 
         return "Book returned successfully";
     }
-
     // ✅ Get all issues
     @GetMapping
     public List<Issue> getAllIssues() {

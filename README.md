@@ -57,8 +57,17 @@ library-frontend
 
 ## 📷 Screenshots
 
-(Add screenshots here later)
+### 📚 Books List
+![Books List](BookList.png)
 
+### ➕ Empty Add Book Form
+![Empty Add Book Form](Empty Add Book form.png)
+
+### 📝 Filled Add Book Form
+![Filled Add Book Form](Form filled with data.png)
+
+### ✅ Add Book Success Alert
+![Add Book Alert](AddBookAlert.png)
 ---
 
 ## ⚙️ How to Run Locally

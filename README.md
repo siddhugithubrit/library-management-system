@@ -1,36 +1,38 @@
-# Library Management System
+# 📚 Library Management System
 
-## 📌 Description
+A full-stack web application to manage books in a library.
 
-This is a full-stack Library Management System developed using Spring Boot and React.js. The application allows users to manage books, issue and return books, and perform CRUD operations efficiently.
+## 🚀 Live Demo
+- Frontend: https://your-netlify-link
+- Backend: Runs locally (Spring Boot API)
+- Database: Supabase (PostgreSQL)
 
-## 🚀 Tech Stack
+## 📌 Features
+- Add Book
+- View Books
+- Delete Book
+- REST API integration
+- Responsive UI
 
-* Frontend: React.js, HTML, CSS, Bootstrap
-* Backend: Spring Boot, REST APIs
-* Database: MySQL
-* Deployment: Railway (Backend), Netlify (Frontend)
-
-## ✨ Features
-
-* Add, update, and delete books
-* View all books in a table format
-* Issue books (with quantity management)
-* Return books and update stock
-* REST API integration between frontend and backend
-* Responsive user interface
-
-## ▶️ How to Run
-
-1. Clone the repository
-2. Start the Spring Boot backend
-3. Start the React frontend
-4. Open the application in browser
+## 🛠 Tech Stack
+- Frontend: React.js
+- Backend: Spring Boot (Java)
+- Database: PostgreSQL (Supabase)
+- Deployment:
+  - Frontend: Netlify
 
 ## 📷 Screenshots
+(Add screenshots here)
 
-(Add screenshots of your UI here)
+## ⚙️ How to Run Locally
 
-## 👨‍💻 Author
+### Backend
+1. Clone repository
+2. Open in Eclipse
+3. Run Spring Boot Application
 
-Siddhesh Mestry
+### Frontend
+```bash
+cd library-frontend
+npm install
+npm start

@@ -5,8 +5,8 @@ A full-stack web application to manage books in a library using Spring Boot, Rea
 ---
 
 ## 🚀 Live Demo
-- Frontend: https://your-netlify-link
-- Backend: Runs locally using Spring Boot
+- Frontend: https://verdant-kashata-03381c.netlify.app/
+- Backend: Spring Boot REST API
 - Database: Supabase (PostgreSQL)
 
 ---
